@@ -2,3 +2,4 @@ lmstudio>=1.5.0
 snac>=1.2.1
 torch>=2.1
 numpy>=1.23
+transformers
