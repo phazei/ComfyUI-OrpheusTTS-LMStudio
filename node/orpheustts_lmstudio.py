@@ -88,7 +88,7 @@ class SlidingRate:
 
 # --- Node ---------------------------------------------------------------------
 
-class OrpheusLMStudioTTS:
+class OrpheusTTSLMStudio:
     """
     Streaming LM Studio with parallel SNAC decoding and a single progress bar
     that reflects the critical path (max of LLM vs SNAC). Detailed logs kept.
@@ -495,8 +495,10 @@ class OrpheusLMStudioTTS:
         if debug:
             avg_wait = (total_wait_time / llm_frag_count) if llm_frag_count else 0.0
             avg_proc = (total_proc_time / llm_frag_count) if llm_frag_count else 0.0
-            p50_wait = _pct(wait_samples, 50); p95_wait = _pct(wait_samples, 95)
-            p50_proc = _pct(proc_samples, 50); p95_proc = _pct(proc_samples, 95)
+            p50_wait = _pct(wait_samples, 50)
+            p95_wait = _pct(wait_samples, 95)
+            p50_proc = _pct(proc_samples, 50)
+            p95_proc = _pct(proc_samples, 95)
 
             print("--- LLM Stream Granular ---")
             print(f"  TTFF (loop):            {first_fragment_rel or 0.0:.4f}s")
@@ -519,5 +521,5 @@ class OrpheusLMStudioTTS:
         return (audio,)
 
 # Comfy registration
-NODE_CLASS_MAPPINGS = {"OrpheusLMStudioTTS": OrpheusLMStudioTTS}
-NODE_DISPLAY_NAME_MAPPINGS = {"OrpheusLMStudioTTS": "Orpheus TTS (LM Studio)"}
+NODE_CLASS_MAPPINGS = {"OrpheusTTSLMStudio": OrpheusTTSLMStudio}
+NODE_DISPLAY_NAME_MAPPINGS = {"OrpheusTTSLMStudio": "Orpheus TTS (LM Studio)"}

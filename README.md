@@ -5,6 +5,9 @@ A custom node for ComfyUI that generates high-quality, natural-sounding speech u
 I tried all the other Orpheus nodes for ComfyUI, and they were either slow (2+min for 15s), or I couldn't get them to install right.  Unlike those, this doesn't try to run the LLM model with all the different settings via some cli thing, I just rely on LM Studio where you can handle all the loading there.  I got this to be as fast as I could, about 0.5x realtime on a RTX3090.  Voices sound so good.
 
 
+![Workflow Diagram](./example_workflows/OrpheusTTSLMStudioExample.png)
+
+
 And now for your regularly scheduled LLM generated readme:
 
 This node is designed for performance and user experience, featuring a highly-responsive, parallelized workflow. It streams audio tokens from LM Studio while decoding them into sound in a separate thread, ensuring your ComfyUI interface remains smooth. The state-of-the-art progress bar intelligently displays the real-time progress of the entire operation, not just one part of it.
@@ -36,12 +39,12 @@ This node is designed for performance and user experience, featuring a highly-re
     ```
 2.  Clone this repository:
     ```bash
-    git clone https://github.com/phazei/ComfyUI-Orpheus-LMStudio.git
+    git clone https://github.com/phazei/ComfyUI-OrpheusTTS-LMStudio.git
     ```
     *(Note: Replace the URL with your actual repository URL after publishing.)*
 3.  Install the required Python packages:
     ```bash
-    cd ComfyUI-Orpheus-LMStudio 
+    cd ComfyUI-OrpheusTTS-LMStudio 
     pip install -r requirements.txt
     ```
     *(You should create a `requirements.txt` file in your repo with the following content:)*
@@ -63,7 +66,7 @@ This node is designed for performance and user experience, featuring a highly-re
 
 ### 2. In ComfyUI
 
-1.  **Add the Node:** Right-click on your graph, select "Add Node," and find the **Orpheus/LM Studio > Orpheus TTS (LM Studio)** node.
+1.  **Add the Node:** Right-click on your graph, select "Add Node," and find the **OrpheusTTS/LM Studio > Orpheus TTS (LM Studio)** node.
 2.  **Enter Your Text:** Type the text you want to convert to speech in the `text` field.
 3.  **Select a Voice:** Choose one of the built-in English voices from the `voice` dropdown.
 4.  **Set the Model Key (Optional but Recommended):**
